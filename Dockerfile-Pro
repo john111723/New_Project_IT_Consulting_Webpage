@@ -1,0 +1,13 @@
+# Step 1: Use the official, lightweight Nginx image from Docker Hub
+FROM nginx:alpine
+
+# Step 2: Copy all website files into the Nginx container
+COPY index.html /usr/share/nginx/html/blog.html
+COPY blog.html /usr/share/nginx/html/blog.html
+COPY README.md /usr/share/nginx/html/README.md
+
+# Step 3: Tell Docker that this container listens on port 80 (HTTP)
+EXPOSE 80
+
+# Step 4: Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
